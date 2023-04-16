@@ -10,6 +10,18 @@
 </section>
 <!--================ Hero sm banner end =================--> 
 
+@if(Auth::check())
+    @if(Auth::user()->isAdmin())
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ route('category.create.index', ['id' => 0]) }}" class="button button-header">Create Category</a>
+            </div>
+        </div>
+    </div>
+    @endif
+@endif
+
 <style>
     a{
         color: #1f4e7c;

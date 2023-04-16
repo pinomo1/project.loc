@@ -28,6 +28,21 @@
 <!--================ About start =================--> 
 <section class="mb-30px">
 
+    @if(Auth::check())
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ route('post.create.index', ['id' => $category->id]) }}" class="button button-header">Create Post</a>
+            </div>
+            @if(Auth::user()->isAdmin())
+            <div class="col-md-6">
+                <a href="{{ route('category.create.index', ['id' => $category->id]) }}" class="button button-header">Create Subcategory</a>
+            </div>
+            @endif
+        </div>
+    </div>
+    @endif
+
     <div class="container">
         <table class="game-tabls table table-inverse">
             <thead>
@@ -55,6 +70,11 @@
                     <th><h2>Posts</h2></th>
                     <th><h3>Replies</h3></th>
                     <th><h3>Author</h3></th>
+                    @if(Auth::check())
+                    @if(Auth::user()->isAdmin())
+                    <th><h3>Actions</h3></th>
+                    @endif
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -66,6 +86,13 @@
                     </th>
                     <th>{{ $post->countReplies() }}</th>
                     <th><a href="{{ route('author', ['id' => $post->getAuthor->id])}}">{{ $post->getAuthor->name }}</a></th>
+                    @if(Auth::check())
+                    @if(Auth::user()->isAdmin())
+                    <th>
+                        <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="button button-header">Delete</a>
+                    </th>
+                    @endif
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

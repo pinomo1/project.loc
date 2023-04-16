@@ -51,4 +51,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Replies::class, 'author_id', 'id');
     }
+
+    public function countPosts()
+    {
+        return $this->posts()->count();
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin == 1;
+    }
 }

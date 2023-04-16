@@ -38,6 +38,22 @@
 <body class="forum-page" data-style="default">
     @include('site.template.header')
 
+	@if($errors->any())
+        <div class="container">
+            <div class="alert alert-danger">
+                {{ $errors->first() }}
+            </div>
+        </div>
+    @endif
+
+	@if(session()->has('success'))
+        <div class="container">
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        </div>
+    @endif
+
     @section('content')
 
     @show
