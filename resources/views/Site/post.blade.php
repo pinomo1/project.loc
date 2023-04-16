@@ -17,6 +17,8 @@
         @endif
         @endif
     </div>
+    <br>
+    <br>
 </section>
 <!--================ Hero sm banner end =================--> 
 
@@ -43,7 +45,7 @@
                 @foreach($replies as $reply)
                 <div>
                     <img src="{{ asset($reply->getAuthor->avatar) }}" alt="" style="width: 100px; height: 100px; border-radius: 50%">
-                    <a href="{{ route('author', ['id' => $reply->getAuthor->id]) }}"><h3 class="game-type"><i class="fa fa-folder-open-o"></i>{{ $reply->getAuthor->name }}
+                    <a href="{{ route('author', ['id' => $reply->getAuthor->id]) }}"><h3 class="game-type">{{ $reply->getAuthor->name }}
                         @if($reply->getAuthor->is_admin == 1)
                             <span style="color: #e04000">- Admin</span>
                         @endif

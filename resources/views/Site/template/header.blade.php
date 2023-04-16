@@ -1,6 +1,5 @@
 @section("NavBar")
 <style>
-
     .searchbar{
         display: inline;
         padding:10px;

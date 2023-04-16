@@ -13,6 +13,9 @@
         @endif
         @endif
         <h1 style="padding: 3vh">{{ $author->name }}</h1>
+        @if($author->isAdmin())
+            <h3>Admin</h3>
+        @endif
         <h5>Posts: {{ $author->countPosts() }}</h5>
         <h5>Registered {{ $author->created_at->diffForHumans() }}</h5>
     </div>

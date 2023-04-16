@@ -62,7 +62,7 @@
                 @foreach($posts as $post)
                 <tr>
                     <th>
-                        <a href="{{ route('post', ['id' => $post->id]) }}"><h3 class="game-type"><i class="fa fa-folder-open-o"></i>{{ $post->title }}</h3></a>
+                        <a href="{{ route('post', ['id' => $post->id]) }}"><h3 class="game-type">{{ $post->title }}</h3></a>
                         <span>Date: {{ $post->published_at }}</span>
                     </th>
                     <th>{{ $post->countReplies() }}</th>
@@ -82,7 +82,7 @@
                 @foreach($users as $user)
                 <tr>
                     <th>
-                        <a href="{{ route('author', ['id' => $user->id]) }}"><h3 class="game-type"><i class="fa fa-folder-open-o"></i>{{ $user->name }}</h3></a>
+                        <a href="{{ route('author', ['id' => $user->id]) }}"><h3 class="game-type">{{ $user->name }}</h3></a>
                         <span>Posts: {{ $user->countPosts() }}</span>
                     </th>
                 </tr>

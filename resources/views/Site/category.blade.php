@@ -5,7 +5,7 @@
 <!--================ Hero sm banner start =================-->  
 <section class="mb-30px">
     <div class="container">
-        <h1 style="padding: 3vh">{{ $category->title }}</h1>
+        <h1 style="padding: 3vh">Category: {{ $category->title }}</h1>
     </div>
 </section>
 <!--================ Hero sm banner end =================--> 
@@ -81,7 +81,7 @@
                 @foreach($posts as $post)
                 <tr>
                     <th>
-                        <a href="{{ route('post', ['id' => $post->id]) }}"><h3 class="game-type"><i class="fa fa-folder-open-o"></i>{{ $post->title }}</h3></a>
+                        <a href="{{ route('post', ['id' => $post->id]) }}"><h3 class="game-type">{{ $post->title }}</h3></a>
                         <span>Date: {{ $post->published_at }}</span>
                     </th>
                     <th>{{ $post->countReplies() }}</th>
